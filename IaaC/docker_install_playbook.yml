@@ -1,0 +1,5 @@
+---
+- name: Install docker playbook
+  hosts: local
+  roles:
+    - docker_install_role

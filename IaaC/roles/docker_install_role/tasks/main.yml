@@ -1,0 +1,79 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for docker_install_role
+- name: install ca-certificates curl
+  ansible.builtin.apt:
+    pkg:
+      - ca-certificates
+      - curl
+    update_cache: true
+    state: present
+  become: yes
+  when: ansible_os_family == "Debian"
+
+- name: chmod keyrings
+  ansible.builtin.shell:
+    cmd: install -m 0755 -d /etc/apt/keyrings
+  become: yes
+
+- name: curl files
+  ansible.builtin.shell:
+    cmd: curl -fsSl https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+  become: yes
+
+- name: chmod docker.asc
+  ansible.builtin.shell:
+    cmd: chmod a+r /etc/apt/keyrings/docker.asc
+  become: yes
+
+- name: Add Docker apt repository (Debian/Ubuntu)
+  ansible.builtin.apt_repository:
+    repo: >-
+      deb [arch={{ ansible_architecture }} signed-by=/etc/apt/keyrings/docker.asc]
+      https://download.docker.com/linux/debian
+      {{ ansible_distribution_release }} stable
+    filename: docker
+    state: present
+  become: yes
+  when: ansible_os_family == "Debian"
+
+- name: update apt
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 0
+  become: yes
+  when: ansible_os_family == "Debian"
+
+- name: install docker on Debian or Ubuntu
+  ansible.builtin.apt:
+    pkg:
+      - docker.io
+      - containerd
+      - docker-compose
+    update_cache: true
+    state: present
+  become: yes
+  when: ansible_os_family  == "Debian"
+
+- name: install docker on RedHat
+  ansible.builtin.dnf:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose
+    state: present
+  become: yes
+  when: ansible_os_family == "RedHat"
+
+- name: start docker-desktop
+  ansible.builtin.systemd_service:
+    state: started
+    name: docker
+
+- name: start Hello world! docker image
+  ansible.builtin.shell: docker run hello-world
+
+- name: version docker
+  ansible.builtin.shell: docker --version | echo
