@@ -13,7 +13,7 @@
 - name: git clone my app
   ansible.builtin.git:
     repo: '{{ CLONE_REPO }}'
-    dest: ~/toDo1
+    dest: ~/toDo
     update: yes
     force: no
 
