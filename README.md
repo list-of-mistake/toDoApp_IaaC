@@ -6,7 +6,7 @@
 
 Для запуска:
 
-cd app
+cd app/IaaC
 
 ansible-playbook deploy_all_in_one.yml
 
