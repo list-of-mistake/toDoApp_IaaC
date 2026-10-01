@@ -119,3 +119,16 @@ Origin: /home/vboxuser/toDo/IaaC/roles/git_clone_role/tasks/main.yml:13:3
 2026-10-01 13:42:17,915 p=9366 u=vboxuser n=ansible INFO| fatal: [localhost]: FAILED! => {"before": "13a543fd6bd0c36bf2fcc12c0c1aee86b4333de6", "changed": false, "msg": "Local modifications exist in the destination: /home/vboxuser/toDo (force=no)."}
 2026-10-01 13:42:17,916 p=9366 u=vboxuser n=ansible INFO| PLAY RECAP ***************************************************************************************
 2026-10-01 13:42:17,916 p=9366 u=vboxuser n=ansible INFO| localhost                  : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-10-01 13:57:18,348 p=9750 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: local
+
+2026-10-01 13:57:18,348 p=9750 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave2
+
+2026-10-01 13:57:18,348 p=9750 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave1
+
+2026-10-01 13:57:18,583 p=9750 u=vboxuser n=ansible INFO| PLAY [Install docker playbook] **********************************************************************************************************
+2026-10-01 13:57:18,593 p=9750 u=vboxuser n=ansible INFO| TASK [Gathering Facts] ******************************************************************************************************************
+2026-10-01 13:57:18,638 p=9750 u=vboxuser n=ansible ERROR| [ERROR]: Task failed: Failed to connect to the host via ssh: ssh: Could not resolve hostname local: Name or service not known
+
+2026-10-01 13:57:18,639 p=9750 u=vboxuser n=ansible INFO| fatal: [local]: UNREACHABLE! => {"changed": false, "msg": "Task failed: Failed to connect to the host via ssh: ssh: Could not resolve hostname local: Name or service not known", "unreachable": true}
+2026-10-01 13:57:18,640 p=9750 u=vboxuser n=ansible INFO| PLAY RECAP ******************************************************************************************************************************
+2026-10-01 13:57:18,640 p=9750 u=vboxuser n=ansible INFO| local                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
