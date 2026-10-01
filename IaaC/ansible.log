@@ -132,3 +132,241 @@ Origin: /home/vboxuser/toDo/IaaC/roles/git_clone_role/tasks/main.yml:13:3
 2026-10-01 13:57:18,639 p=9750 u=vboxuser n=ansible INFO| fatal: [local]: UNREACHABLE! => {"changed": false, "msg": "Task failed: Failed to connect to the host via ssh: ssh: Could not resolve hostname local: Name or service not known", "unreachable": true}
 2026-10-01 13:57:18,640 p=9750 u=vboxuser n=ansible INFO| PLAY RECAP ******************************************************************************************************************************
 2026-10-01 13:57:18,640 p=9750 u=vboxuser n=ansible INFO| local                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2026-10-01 14:59:42,687 p=10643 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave1
+
+2026-10-01 14:59:42,687 p=10643 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave2
+
+2026-10-01 14:59:42,687 p=10643 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: local
+
+2026-10-01 14:59:42,915 p=10643 u=vboxuser n=ansible INFO| PLAY [Git clone my repo] ****************************************************************************************************************
+2026-10-01 14:59:42,927 p=10643 u=vboxuser n=ansible INFO| TASK [Gathering Facts] ******************************************************************************************************************
+2026-10-01 14:59:43,860 p=10643 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 14:59:43,863 p=10643 u=vboxuser n=ansible INFO| TASK [git_clone_role : install git for Debian] ******************************************************************************************
+2026-10-01 14:59:48,409 p=10643 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 14:59:48,413 p=10643 u=vboxuser n=ansible INFO| TASK [git_clone_role : git clone my app] ************************************************************************************************
+2026-10-01 14:59:48,791 p=10643 u=vboxuser n=ansible ERROR| [ERROR]: Task failed: Module failed: Local modifications exist in the destination: /home/vboxuser/toDo (force=no).
+Origin: /home/vboxuser/toDo/IaaC/roles/git_clone_role/tasks/main.yml:13:3
+
+11   when: ansible_os_family == "Debian"
+12
+13 - name: git clone my app
+     ^ column 3
+
+
+2026-10-01 14:59:48,792 p=10643 u=vboxuser n=ansible INFO| fatal: [localhost]: FAILED! => {"before": "bdb31ecc3fb986baa0dc8633ed26d54e0b361861", "changed": false, "msg": "Local modifications exist in the destination: /home/vboxuser/toDo (force=no)."}
+2026-10-01 14:59:48,793 p=10643 u=vboxuser n=ansible INFO| PLAY RECAP ******************************************************************************************************************************
+2026-10-01 14:59:48,793 p=10643 u=vboxuser n=ansible INFO| localhost                  : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-10-01 15:18:22,160 p=11047 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave1
+
+2026-10-01 15:18:22,160 p=11047 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: local
+
+2026-10-01 15:18:22,160 p=11047 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave2
+
+2026-10-01 15:18:22,373 p=11047 u=vboxuser n=ansible INFO| PLAY [build and up docker compose] *********************************************
+2026-10-01 15:18:22,383 p=11047 u=vboxuser n=ansible INFO| TASK [Gathering Facts] *********************************************************
+2026-10-01 15:18:23,286 p=11047 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 15:18:23,294 p=11047 u=vboxuser n=ansible INFO| TASK [deploy : move to app] ****************************************************
+2026-10-01 15:18:23,630 p=11047 u=vboxuser n=ansible ERROR| [ERROR]: Task failed: Module failed: non-zero return code
+Origin: /home/vboxuser/toDo/IaaC/roles/deploy/tasks/main.yml:4:3
+
+2 ---
+3 # tasks file for deploy
+4 - name: move to app
+    ^ column 3
+
+
+2026-10-01 15:18:23,630 p=11047 u=vboxuser n=ansible INFO| fatal: [localhost]: FAILED! => {"changed": true, "cmd": "cd app", "delta": "0:00:00.002696", "end": "2026-10-01 15:18:23.597475", "msg": "non-zero return code", "rc": 2, "start": "2026-10-01 15:18:23.594779", "stderr": "/bin/sh: 1: cd: can't cd to app", "stderr_lines": ["/bin/sh: 1: cd: can't cd to app"], "stdout": "", "stdout_lines": []}
+2026-10-01 15:18:23,631 p=11047 u=vboxuser n=ansible INFO| PLAY RECAP *********************************************************************
+2026-10-01 15:18:23,631 p=11047 u=vboxuser n=ansible INFO| localhost                  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-10-01 15:28:56,777 p=11229 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave1
+
+2026-10-01 15:28:56,778 p=11229 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: local
+
+2026-10-01 15:28:56,778 p=11229 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave2
+
+2026-10-01 15:28:56,994 p=11229 u=vboxuser n=ansible INFO| PLAY [build and up docker compose] *********************************************
+2026-10-01 15:28:57,004 p=11229 u=vboxuser n=ansible INFO| TASK [Gathering Facts] *********************************************************
+2026-10-01 15:28:57,909 p=11229 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 15:28:57,912 p=11229 u=vboxuser n=ansible INFO| TASK [deploy : docker compose build] *******************************************
+2026-10-01 15:28:58,228 p=11229 u=vboxuser n=ansible ERROR| [ERROR]: Task failed: Module failed: Unable to change directory before execution: [Errno 2] No such file or directory: b'app'
+Origin: /home/vboxuser/toDo/IaaC/roles/deploy/tasks/main.yml:4:3
+
+2 ---
+3 # tasks file for deploy
+4 - name: docker compose build
+    ^ column 3
+
+
+2026-10-01 15:28:58,229 p=11229 u=vboxuser n=ansible INFO| fatal: [localhost]: FAILED! => {"changed": false, "cmd": ["docker", "compose", "build"], "delta": null, "end": null, "msg": "Unable to change directory before execution.", "rc": null, "start": null, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+2026-10-01 15:28:58,230 p=11229 u=vboxuser n=ansible INFO| PLAY RECAP *********************************************************************
+2026-10-01 15:28:58,230 p=11229 u=vboxuser n=ansible INFO| localhost                  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-10-01 15:29:41,489 p=11346 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave1
+
+2026-10-01 15:29:41,489 p=11346 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave2
+
+2026-10-01 15:29:41,489 p=11346 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: local
+
+2026-10-01 15:29:41,709 p=11346 u=vboxuser n=ansible INFO| PLAY [build and up docker compose] *********************************************
+2026-10-01 15:29:41,719 p=11346 u=vboxuser n=ansible INFO| TASK [Gathering Facts] *********************************************************
+2026-10-01 15:29:42,617 p=11346 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 15:29:42,620 p=11346 u=vboxuser n=ansible INFO| TASK [deploy : docker compose build] *******************************************
+2026-10-01 15:29:45,488 p=11346 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 15:29:45,491 p=11346 u=vboxuser n=ansible INFO| TASK [deploy : docker compose up] **********************************************
+2026-10-01 15:29:45,782 p=11346 u=vboxuser n=ansible ERROR| [ERROR]: Task failed: Module failed: non-zero return code
+Origin: /home/vboxuser/toDo/IaaC/roles/deploy/tasks/main.yml:10:3
+
+ 8   changed_when: false
+ 9
+10 - name: docker compose up
+     ^ column 3
+
+
+2026-10-01 15:29:45,783 p=11346 u=vboxuser n=ansible INFO| fatal: [localhost]: FAILED! => {"changed": true, "cmd": ["docker", "compose", "up"], "delta": "0:00:00.065758", "end": "2026-10-01 15:29:45.750389", "msg": "non-zero return code", "rc": 14, "start": "2026-10-01 15:29:45.684631", "stderr": "no configuration file provided: not found", "stderr_lines": ["no configuration file provided: not found"], "stdout": "", "stdout_lines": []}
+2026-10-01 15:29:45,783 p=11346 u=vboxuser n=ansible INFO| PLAY RECAP *********************************************************************
+2026-10-01 15:29:45,783 p=11346 u=vboxuser n=ansible INFO| localhost                  : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-10-01 15:34:35,660 p=11798 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave1
+
+2026-10-01 15:34:35,661 p=11798 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave2
+
+2026-10-01 15:34:35,661 p=11798 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: local
+
+2026-10-01 15:34:35,857 p=11798 u=vboxuser n=ansible ERROR| [ERROR]: YAML parsing failed: Colons in unquoted values must be followed by a non-space character.
+Origin: /home/vboxuser/toDo/IaaC/roles/deploy/tasks/main.yml:6:9
+
+4 - name: docker compose build
+5   ansible.builtin.command: docker compose build
+6     args:
+          ^ column 9
+
+
+For example:
+
+    raw: echo 'name: ansible'
+
+Should be:
+
+    raw: "echo 'name: ansible'"
+
+
+2026-10-01 15:34:55,582 p=11808 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave1
+
+2026-10-01 15:34:55,583 p=11808 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: local
+
+2026-10-01 15:34:55,583 p=11808 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave2
+
+2026-10-01 15:34:55,787 p=11808 u=vboxuser n=ansible ERROR| [ERROR]: YAML parsing failed: Colons in unquoted values must be followed by a non-space character.
+Origin: /home/vboxuser/toDo/IaaC/roles/deploy/tasks/main.yml:6:9
+
+4 - name: docker compose build
+5   ansible.builtin.command: docker compose build
+6     args:
+          ^ column 9
+
+
+For example:
+
+    raw: echo 'name: ansible'
+
+Should be:
+
+    raw: "echo 'name: ansible'"
+
+
+2026-10-01 15:37:06,687 p=11831 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: local
+
+2026-10-01 15:37:06,687 p=11831 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave1
+
+2026-10-01 15:37:06,687 p=11831 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave2
+
+2026-10-01 15:37:06,899 p=11831 u=vboxuser n=ansible INFO| PLAY [build and up docker compose] *********************************************
+2026-10-01 15:37:06,908 p=11831 u=vboxuser n=ansible INFO| TASK [Gathering Facts] *********************************************************
+2026-10-01 15:37:07,808 p=11831 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 15:37:07,811 p=11831 u=vboxuser n=ansible INFO| TASK [deploy : docker compose build] *******************************************
+2026-10-01 15:37:11,039 p=11831 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 15:37:11,042 p=11831 u=vboxuser n=ansible INFO| TASK [deploy : docker compose up] **********************************************
+2026-10-01 15:37:11,330 p=11831 u=vboxuser n=ansible ERROR| [ERROR]: Task failed: Module failed: non-zero return code
+Origin: /home/vboxuser/toDo/IaaC/roles/deploy/tasks/main.yml:10:3
+
+ 8   changed_when: false
+ 9
+10 - name: docker compose up
+     ^ column 3
+
+
+2026-10-01 15:37:11,330 p=11831 u=vboxuser n=ansible INFO| fatal: [localhost]: FAILED! => {"changed": true, "cmd": ["docker", "compose", "up"], "delta": "0:00:00.060727", "end": "2026-10-01 15:37:11.297288", "msg": "non-zero return code", "rc": 14, "start": "2026-10-01 15:37:11.236561", "stderr": "no configuration file provided: not found", "stderr_lines": ["no configuration file provided: not found"], "stdout": "", "stdout_lines": []}
+2026-10-01 15:37:11,331 p=11831 u=vboxuser n=ansible INFO| PLAY RECAP *********************************************************************
+2026-10-01 15:37:11,331 p=11831 u=vboxuser n=ansible INFO| localhost                  : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-10-01 15:38:08,958 p=12236 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave1
+
+2026-10-01 15:38:08,959 p=12236 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave2
+
+2026-10-01 15:38:08,959 p=12236 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: local
+
+2026-10-01 15:38:09,181 p=12236 u=vboxuser n=ansible INFO| PLAY [build and up docker compose] *********************************************
+2026-10-01 15:38:09,191 p=12236 u=vboxuser n=ansible INFO| TASK [Gathering Facts] *********************************************************
+2026-10-01 15:38:10,087 p=12236 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 15:38:10,090 p=12236 u=vboxuser n=ansible INFO| TASK [deploy : docker compose build] *******************************************
+2026-10-01 15:38:11,780 p=12236 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 15:38:11,783 p=12236 u=vboxuser n=ansible INFO| TASK [deploy : docker compose up] **********************************************
+2026-10-01 15:41:38,532 p=12236 u=vboxuser n=ansible ERROR| [ERROR]: User interrupted execution
+
+2026-10-01 15:43:55,819 p=14537 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave1
+
+2026-10-01 15:43:55,820 p=14537 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave2
+
+2026-10-01 15:43:55,820 p=14537 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: local
+
+2026-10-01 15:43:56,052 p=14537 u=vboxuser n=ansible INFO| PLAY [build and up docker compose] *********************************************
+2026-10-01 15:43:56,061 p=14537 u=vboxuser n=ansible INFO| TASK [Gathering Facts] *********************************************************
+2026-10-01 15:43:57,227 p=14537 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 15:43:57,231 p=14537 u=vboxuser n=ansible INFO| TASK [deploy : docker compose build] *******************************************
+2026-10-01 15:43:59,729 p=14537 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 15:43:59,733 p=14537 u=vboxuser n=ansible INFO| TASK [deploy : docker compose up] **********************************************
+2026-10-01 15:45:54,415 p=14537 u=vboxuser n=ansible ERROR| [ERROR]: User interrupted execution
+
+2026-10-01 15:53:36,759 p=17777 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: local
+
+2026-10-01 15:53:36,759 p=17777 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave2
+
+2026-10-01 15:53:36,759 p=17777 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave1
+
+2026-10-01 15:53:36,995 p=17777 u=vboxuser n=ansible INFO| PLAY [start 3 roles] ********************************************************************************************************************
+2026-10-01 15:53:37,007 p=17777 u=vboxuser n=ansible INFO| TASK [Gathering Facts] ******************************************************************************************************************
+2026-10-01 15:53:37,935 p=17777 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 15:53:37,938 p=17777 u=vboxuser n=ansible INFO| TASK [docker_install_role : install ca-certificates curl] *******************************************************************************
+2026-10-01 15:53:41,650 p=17777 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 15:53:41,654 p=17777 u=vboxuser n=ansible INFO| TASK [docker_install_role : chmod keyrings] *********************************************************************************************
+2026-10-01 15:53:41,993 p=17777 u=vboxuser n=ansible INFO| changed: [localhost]
+2026-10-01 15:53:41,996 p=17777 u=vboxuser n=ansible INFO| TASK [docker_install_role : curl files] *************************************************************************************************
+2026-10-01 15:53:42,363 p=17777 u=vboxuser n=ansible INFO| changed: [localhost]
+2026-10-01 15:53:42,367 p=17777 u=vboxuser n=ansible INFO| TASK [docker_install_role : chmod docker.asc] *******************************************************************************************
+2026-10-01 15:53:42,611 p=17777 u=vboxuser n=ansible INFO| changed: [localhost]
+2026-10-01 15:53:42,614 p=17777 u=vboxuser n=ansible INFO| TASK [docker_install_role : Add Docker apt repository (Debian/Ubuntu)] ******************************************************************
+2026-10-01 15:53:43,085 p=17777 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 15:53:43,088 p=17777 u=vboxuser n=ansible INFO| TASK [docker_install_role : update apt] *************************************************************************************************
+2026-10-01 15:53:46,538 p=17777 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 15:53:46,542 p=17777 u=vboxuser n=ansible INFO| TASK [docker_install_role : install docker on Debian or Ubuntu] *************************************************************************
+2026-10-01 15:53:50,083 p=17777 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 15:53:50,093 p=17777 u=vboxuser n=ansible INFO| TASK [docker_install_role : install docker on RedHat] ***********************************************************************************
+2026-10-01 15:53:50,105 p=17777 u=vboxuser n=ansible INFO| skipping: [localhost]
+2026-10-01 15:53:50,109 p=17777 u=vboxuser n=ansible INFO| TASK [docker_install_role : start docker-desktop] ***************************************************************************************
+2026-10-01 15:53:50,721 p=17777 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 15:53:50,725 p=17777 u=vboxuser n=ansible INFO| TASK [docker_install_role : start Hello world! docker image] ****************************************************************************
+2026-10-01 15:53:51,319 p=17777 u=vboxuser n=ansible INFO| changed: [localhost]
+2026-10-01 15:53:51,325 p=17777 u=vboxuser n=ansible INFO| TASK [docker_install_role : version docker] *********************************************************************************************
+2026-10-01 15:53:51,565 p=17777 u=vboxuser n=ansible INFO| changed: [localhost]
+2026-10-01 15:53:51,571 p=17777 u=vboxuser n=ansible INFO| TASK [git_clone_role : install git for Debian] ******************************************************************************************
+2026-10-01 15:53:55,083 p=17777 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 15:53:55,086 p=17777 u=vboxuser n=ansible INFO| TASK [git_clone_role : git clone my app] ************************************************************************************************
+2026-10-01 15:53:55,468 p=17777 u=vboxuser n=ansible ERROR| [ERROR]: Task failed: Module failed: Local modifications exist in the destination: /home/vboxuser/toDo (force=no).
+Origin: /home/vboxuser/toDo/IaaC/roles/git_clone_role/tasks/main.yml:13:3
+
+11   when: ansible_os_family == "Debian"
+12
+13 - name: git clone my app
+     ^ column 3
+
+
+2026-10-01 15:53:55,468 p=17777 u=vboxuser n=ansible INFO| fatal: [localhost]: FAILED! => {"before": "bdb31ecc3fb986baa0dc8633ed26d54e0b361861", "changed": false, "msg": "Local modifications exist in the destination: /home/vboxuser/toDo (force=no)."}
+2026-10-01 15:53:55,469 p=17777 u=vboxuser n=ansible INFO| PLAY RECAP ******************************************************************************************************************************
+2026-10-01 15:53:55,470 p=17777 u=vboxuser n=ansible INFO| localhost                  : ok=12   changed=5    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   

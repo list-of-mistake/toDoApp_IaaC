@@ -1,0 +1,5 @@
+---
+- name: build and up docker compose
+  hosts: localhost
+  roles:
+    - deploy

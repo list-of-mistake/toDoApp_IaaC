@@ -1,0 +1,7 @@
+---
+- name: start 3 roles
+  hosts: localhost
+  roles:
+    - docker_install_role
+    - git_clone_role
+    - deploy
