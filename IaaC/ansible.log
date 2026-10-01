@@ -508,3 +508,90 @@ Origin: /home/vboxuser/toDo/IaaC/roles/git_clone_role/tasks/main.yml:13:3
 2026-10-01 16:18:33,177 p=25553 u=vboxuser n=ansible INFO| fatal: [localhost]: FAILED! => {"before": "d4f9ecbb45a6b1dad90ffd6f92d483339a0bbcac", "changed": false, "msg": "Local modifications exist in the destination: /home/vboxuser/toDo (force=no)."}
 2026-10-01 16:18:33,178 p=25553 u=vboxuser n=ansible INFO| PLAY RECAP ******************************************************************************************************************************
 2026-10-01 16:18:33,178 p=25553 u=vboxuser n=ansible INFO| localhost                  : ok=12   changed=5    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2026-10-01 16:20:51,903 p=26903 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave1
+
+2026-10-01 16:20:51,904 p=26903 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave2
+
+2026-10-01 16:20:51,904 p=26903 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: local
+
+2026-10-01 16:20:52,166 p=26903 u=vboxuser n=ansible INFO| PLAY [start 3 roles] ********************************************************************************************************************
+2026-10-01 16:20:52,180 p=26903 u=vboxuser n=ansible INFO| TASK [Gathering Facts] ******************************************************************************************************************
+2026-10-01 16:20:53,248 p=26903 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 16:20:53,252 p=26903 u=vboxuser n=ansible INFO| TASK [docker_install_role : install ca-certificates curl] *******************************************************************************
+2026-10-01 16:20:57,311 p=26903 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 16:20:57,316 p=26903 u=vboxuser n=ansible INFO| TASK [docker_install_role : chmod keyrings] *********************************************************************************************
+2026-10-01 16:20:57,728 p=26903 u=vboxuser n=ansible INFO| changed: [localhost]
+2026-10-01 16:20:57,732 p=26903 u=vboxuser n=ansible INFO| TASK [docker_install_role : curl files] *************************************************************************************************
+2026-10-01 16:20:58,102 p=26903 u=vboxuser n=ansible INFO| changed: [localhost]
+2026-10-01 16:20:58,106 p=26903 u=vboxuser n=ansible INFO| TASK [docker_install_role : chmod docker.asc] *******************************************************************************************
+2026-10-01 16:20:58,373 p=26903 u=vboxuser n=ansible INFO| changed: [localhost]
+2026-10-01 16:20:58,376 p=26903 u=vboxuser n=ansible INFO| TASK [docker_install_role : Add Docker apt repository (Debian/Ubuntu)] ******************************************************************
+2026-10-01 16:20:58,922 p=26903 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 16:20:58,926 p=26903 u=vboxuser n=ansible INFO| TASK [docker_install_role : update apt] *************************************************************************************************
+2026-10-01 16:21:02,714 p=26903 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 16:21:02,717 p=26903 u=vboxuser n=ansible INFO| TASK [docker_install_role : install docker on Debian or Ubuntu] *************************************************************************
+2026-10-01 16:21:06,748 p=26903 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 16:21:06,752 p=26903 u=vboxuser n=ansible INFO| TASK [docker_install_role : install docker on RedHat] ***********************************************************************************
+2026-10-01 16:21:06,768 p=26903 u=vboxuser n=ansible INFO| skipping: [localhost]
+2026-10-01 16:21:06,775 p=26903 u=vboxuser n=ansible INFO| TASK [docker_install_role : start docker-desktop] ***************************************************************************************
+2026-10-01 16:21:07,450 p=26903 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 16:21:07,454 p=26903 u=vboxuser n=ansible INFO| TASK [docker_install_role : start Hello world! docker image] ****************************************************************************
+2026-10-01 16:21:08,113 p=26903 u=vboxuser n=ansible INFO| changed: [localhost]
+2026-10-01 16:21:08,117 p=26903 u=vboxuser n=ansible INFO| TASK [docker_install_role : version docker] *********************************************************************************************
+2026-10-01 16:21:08,391 p=26903 u=vboxuser n=ansible INFO| changed: [localhost]
+2026-10-01 16:21:08,397 p=26903 u=vboxuser n=ansible INFO| TASK [git_clone_role : install git for Debian] ******************************************************************************************
+2026-10-01 16:21:12,345 p=26903 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 16:21:12,349 p=26903 u=vboxuser n=ansible INFO| TASK [git_clone_role : git clone my app] ************************************************************************************************
+2026-10-01 16:21:12,771 p=26903 u=vboxuser n=ansible ERROR| [ERROR]: Task failed: Module failed: Local modifications exist in the destination: /home/vboxuser/toDo (force=no).
+Origin: /home/vboxuser/toDo/IaaC/roles/git_clone_role/tasks/main.yml:13:3
+
+11   when: ansible_os_family == "Debian"
+12
+13 - name: git clone my app
+     ^ column 3
+
+
+2026-10-01 16:21:12,772 p=26903 u=vboxuser n=ansible INFO| fatal: [localhost]: FAILED! => {"before": "ec23c332d47600c0efdd14907c3e67adb88a463b", "changed": false, "msg": "Local modifications exist in the destination: /home/vboxuser/toDo (force=no)."}
+2026-10-01 16:21:12,773 p=26903 u=vboxuser n=ansible INFO| PLAY RECAP ******************************************************************************************************************************
+2026-10-01 16:21:12,773 p=26903 u=vboxuser n=ansible INFO| localhost                  : ok=12   changed=5    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2026-10-01 16:22:34,768 p=28046 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: local
+
+2026-10-01 16:22:34,768 p=28046 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave2
+
+2026-10-01 16:22:34,768 p=28046 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave1
+
+2026-10-01 16:22:35,048 p=28046 u=vboxuser n=ansible INFO| PLAY [start 3 roles] ********************************************************************************************************************
+2026-10-01 16:22:35,062 p=28046 u=vboxuser n=ansible INFO| TASK [Gathering Facts] ******************************************************************************************************************
+2026-10-01 16:22:36,150 p=28046 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 16:22:36,154 p=28046 u=vboxuser n=ansible INFO| TASK [docker_install_role : install ca-certificates curl] *******************************************************************************
+2026-10-01 16:22:40,323 p=28046 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 16:22:40,328 p=28046 u=vboxuser n=ansible INFO| TASK [docker_install_role : chmod keyrings] *********************************************************************************************
+2026-10-01 16:22:40,703 p=28046 u=vboxuser n=ansible INFO| changed: [localhost]
+2026-10-01 16:22:40,707 p=28046 u=vboxuser n=ansible INFO| TASK [docker_install_role : curl files] *************************************************************************************************
+2026-10-01 16:22:41,084 p=28046 u=vboxuser n=ansible INFO| changed: [localhost]
+2026-10-01 16:22:41,088 p=28046 u=vboxuser n=ansible INFO| TASK [docker_install_role : chmod docker.asc] *******************************************************************************************
+2026-10-01 16:22:41,355 p=28046 u=vboxuser n=ansible INFO| changed: [localhost]
+2026-10-01 16:22:41,358 p=28046 u=vboxuser n=ansible INFO| TASK [docker_install_role : Add Docker apt repository (Debian/Ubuntu)] ******************************************************************
+2026-10-01 16:22:41,905 p=28046 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 16:22:41,909 p=28046 u=vboxuser n=ansible INFO| TASK [docker_install_role : update apt] *************************************************************************************************
+2026-10-01 16:22:45,706 p=28046 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 16:22:45,715 p=28046 u=vboxuser n=ansible INFO| TASK [docker_install_role : install docker on Debian or Ubuntu] *************************************************************************
+2026-10-01 16:22:49,691 p=28046 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 16:22:49,695 p=28046 u=vboxuser n=ansible INFO| TASK [docker_install_role : install docker on RedHat] ***********************************************************************************
+2026-10-01 16:22:49,712 p=28046 u=vboxuser n=ansible INFO| skipping: [localhost]
+2026-10-01 16:22:49,716 p=28046 u=vboxuser n=ansible INFO| TASK [docker_install_role : start docker-desktop] ***************************************************************************************
+2026-10-01 16:22:50,424 p=28046 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 16:22:50,427 p=28046 u=vboxuser n=ansible INFO| TASK [docker_install_role : start Hello world! docker image] ****************************************************************************
+2026-10-01 16:22:51,086 p=28046 u=vboxuser n=ansible INFO| changed: [localhost]
+2026-10-01 16:22:51,090 p=28046 u=vboxuser n=ansible INFO| TASK [docker_install_role : version docker] *********************************************************************************************
+2026-10-01 16:22:51,371 p=28046 u=vboxuser n=ansible INFO| changed: [localhost]
+2026-10-01 16:22:51,377 p=28046 u=vboxuser n=ansible INFO| TASK [git_clone_role : install git for Debian] ******************************************************************************************
+2026-10-01 16:22:55,383 p=28046 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 16:22:55,386 p=28046 u=vboxuser n=ansible INFO| TASK [git_clone_role : git clone my app] ************************************************************************************************
+2026-10-01 16:22:58,049 p=28046 u=vboxuser n=ansible INFO| changed: [localhost]
+2026-10-01 16:22:58,056 p=28046 u=vboxuser n=ansible INFO| TASK [deploy : docker compose build] ****************************************************************************************************
+2026-10-01 16:23:00,651 p=28046 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 16:23:00,655 p=28046 u=vboxuser n=ansible INFO| TASK [deploy : docker compose up] *******************************************************************************************************
+2026-10-01 16:23:01,022 p=28046 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 16:23:01,027 p=28046 u=vboxuser n=ansible INFO| PLAY RECAP ******************************************************************************************************************************
+2026-10-01 16:23:01,027 p=28046 u=vboxuser n=ansible INFO| localhost                  : ok=15   changed=6    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   

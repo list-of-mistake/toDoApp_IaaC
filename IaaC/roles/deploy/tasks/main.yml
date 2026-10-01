@@ -4,11 +4,11 @@
 - name: docker compose build
   ansible.builtin.command: docker compose build
   args:
-    chdir: ~/toDo/app/
+    chdir: ~/toDo1/app/
   changed_when: false
 
 - name: docker compose up
   ansible.builtin.command: docker compose up -d
   args:
-    chdir: ~/toDo/app/
+    chdir: ~/toDo1/app/
   changed_when: false
