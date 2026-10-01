@@ -9,7 +9,7 @@ CORS(app)
 def get_db_connection():
     """Подключение к БД. Имя хоста 'db' — это имя сервиса в docker-compose."""
     conn = psycopg2.connect(
-        host="localhost",
+        host="db",
         dbname="todo",
         user="todo_user",
         password="pass"
