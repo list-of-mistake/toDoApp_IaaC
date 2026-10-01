@@ -16,5 +16,5 @@
     dest: ~/toDo
     version: 'main'
     update: yes
-
+    force: no
 
