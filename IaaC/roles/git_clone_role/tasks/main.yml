@@ -14,7 +14,6 @@
   ansible.builtin.git:
     repo: '{{ CLONE_REPO }}'
     dest: ~/toDo
-    version: 'main'
     update: yes
     force: no
 
