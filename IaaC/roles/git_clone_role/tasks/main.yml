@@ -1,0 +1,18 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for git_clone_role
+- name: install git for Debian
+  ansible.builtin.apt:
+    pkg:
+      - git
+    update_cache: true
+    state: present
+  become: yes
+  when: ansible_os_family == "Debian"
+
+- name: git clone my app
+  ansible.builtin.git:
+    repo: '{{ CLONE_REPO }}'
+    dest: ~/toDo
+    version: 'main'
+    update: yes

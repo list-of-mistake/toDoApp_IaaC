@@ -1,0 +1,5 @@
+---
+- name: Git clone my repo
+  hosts: localhost
+  roles:
+    - git_clone_role

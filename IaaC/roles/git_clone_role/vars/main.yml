@@ -1,0 +1,4 @@
+#SPDX-License-Identifier: MIT-0
+---
+# vars file for git_clone_role
+CLONE_REPO: "https://github.com/list-of-mistake/toDoApp_IaaC.git"

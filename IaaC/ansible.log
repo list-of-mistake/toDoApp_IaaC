@@ -1,0 +1,121 @@
+2026-10-01 13:16:50,262 p=8974 u=vboxuser n=ansible ERROR| [ERROR]: Task failed: Failed to connect to the host via ssh: ssh_askpass: exec(/usr/bin/ssh-askpass): No such file or directory
+Host key verification failed.
+Origin: <adhoc 'ping' task>
+
+{'action': 'ping', 'args': {}, 'timeout': 0, 'async_val': 0, 'poll': 15}
+
+
+2026-10-01 13:16:50,263 p=8974 u=vboxuser n=ansible INFO| 192.168.0.3 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Task failed: Failed to connect to the host via ssh: ssh_askpass: exec(/usr/bin/ssh-askpass): No such file or directory\r\nHost key verification failed.",
+    "unreachable": true
+}
+2026-10-01 13:20:02,253 p=9046 u=vboxuser n=ansible WARNING| [WARNING]: Unable to parse /home/vboxuser/toDo/IaaC/inventory as an inventory source
+
+2026-10-01 13:20:02,254 p=9046 u=vboxuser n=ansible WARNING| [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2026-10-01 13:20:02,257 p=9046 u=vboxuser n=ansible WARNING| [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2026-10-01 13:20:15,597 p=9049 u=vboxuser n=ansible INFO| localhost | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+2026-10-01 13:20:15,735 p=9049 u=vboxuser n=ansible INFO| 192.168.0.3 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+2026-10-01 13:20:18,344 p=9049 u=vboxuser n=ansible ERROR| [ERROR]: Task failed: Failed to connect to the host via ssh: ssh: connect to host 192.168.0.2 port 22: No route to host
+Origin: <adhoc 'ping' task>
+
+{'action': 'ping', 'args': {}, 'timeout': 0, 'async_val': 0, 'poll': 15}
+
+
+2026-10-01 13:20:18,344 p=9049 u=vboxuser n=ansible INFO| 192.168.0.2 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Task failed: Failed to connect to the host via ssh: ssh: connect to host 192.168.0.2 port 22: No route to host",
+    "unreachable": true
+}
+2026-10-01 13:26:35,730 p=9153 u=vboxuser n=ansible ERROR| [ERROR]: the playbook: local could not be found
+
+2026-10-01 13:27:03,901 p=9160 u=vboxuser n=ansible ERROR| [ERROR]: the playbook: localhost could not be found
+
+2026-10-01 13:29:26,802 p=9176 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: local
+
+2026-10-01 13:29:26,802 p=9176 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave2
+
+2026-10-01 13:29:26,802 p=9176 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave1
+
+2026-10-01 13:29:27,059 p=9176 u=vboxuser n=ansible ERROR| [ERROR]: conflicting action statements: ansible.builtin.git, repo
+Origin: /home/vboxuser/toDo/IaaC/roles/git_clone_role/tasks/main.yml:13:3
+
+11   when: ansible_os_family == "Debian"
+12
+13 - name: git clone my app
+     ^ column 3
+
+
+2026-10-01 13:34:03,769 p=9231 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave2
+
+2026-10-01 13:34:03,769 p=9231 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave1
+
+2026-10-01 13:34:03,769 p=9231 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: local
+
+2026-10-01 13:34:03,961 p=9231 u=vboxuser n=ansible ERROR| [ERROR]: conflicting action statements: ansible.builtin.git, repo
+Origin: /home/vboxuser/toDo/IaaC/roles/git_clone_role/tasks/main.yml:13:3
+
+11   when: ansible_os_family == "Debian"
+12
+13 - name: git clone my app
+     ^ column 3
+
+
+2026-10-01 13:38:29,454 p=9277 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: local
+
+2026-10-01 13:38:29,454 p=9277 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave1
+
+2026-10-01 13:38:29,454 p=9277 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave2
+
+2026-10-01 13:38:29,665 p=9277 u=vboxuser n=ansible INFO| PLAY [Git clone my repo] *************************************************************************
+2026-10-01 13:38:29,678 p=9277 u=vboxuser n=ansible INFO| TASK [Gathering Facts] ***************************************************************************
+2026-10-01 13:38:29,724 p=9277 u=vboxuser n=ansible ERROR| [ERROR]: Task failed: Failed to connect to the host via ssh: ssh: Could not resolve hostname local: Name or service not known
+
+2026-10-01 13:38:29,724 p=9277 u=vboxuser n=ansible INFO| fatal: [local]: UNREACHABLE! => {"changed": false, "msg": "Task failed: Failed to connect to the host via ssh: ssh: Could not resolve hostname local: Name or service not known", "unreachable": true}
+2026-10-01 13:38:29,725 p=9277 u=vboxuser n=ansible INFO| PLAY RECAP ***************************************************************************************
+2026-10-01 13:38:29,725 p=9277 u=vboxuser n=ansible INFO| local                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2026-10-01 13:38:49,415 p=9284 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave2
+
+2026-10-01 13:38:49,416 p=9284 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: local
+
+2026-10-01 13:38:49,416 p=9284 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave1
+
+2026-10-01 13:38:49,631 p=9284 u=vboxuser n=ansible INFO| PLAY [Git clone my repo] *************************************************************************
+2026-10-01 13:38:49,642 p=9284 u=vboxuser n=ansible INFO| TASK [Gathering Facts] ***************************************************************************
+2026-10-01 13:38:49,691 p=9284 u=vboxuser n=ansible ERROR| [ERROR]: Task failed: Failed to connect to the host via ssh: ssh: Could not resolve hostname local: Name or service not known
+
+2026-10-01 13:38:49,691 p=9284 u=vboxuser n=ansible INFO| fatal: [local]: UNREACHABLE! => {"changed": false, "msg": "Task failed: Failed to connect to the host via ssh: ssh: Could not resolve hostname local: Name or service not known", "unreachable": true}
+2026-10-01 13:38:49,692 p=9284 u=vboxuser n=ansible INFO| PLAY RECAP ***************************************************************************************
+2026-10-01 13:38:49,692 p=9284 u=vboxuser n=ansible INFO| local                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2026-10-01 13:42:11,252 p=9366 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: local
+
+2026-10-01 13:42:11,252 p=9366 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave1
+
+2026-10-01 13:42:11,252 p=9366 u=vboxuser n=ansible WARNING| [WARNING]: Found both group and host with same name: slave2
+
+2026-10-01 13:42:11,469 p=9366 u=vboxuser n=ansible INFO| PLAY [Git clone my repo] *************************************************************************
+2026-10-01 13:42:11,479 p=9366 u=vboxuser n=ansible INFO| TASK [Gathering Facts] ***************************************************************************
+2026-10-01 13:42:12,604 p=9366 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 13:42:12,607 p=9366 u=vboxuser n=ansible INFO| TASK [git_clone_role : install git for Debian] ***************************************************
+2026-10-01 13:42:17,531 p=9366 u=vboxuser n=ansible INFO| ok: [localhost]
+2026-10-01 13:42:17,534 p=9366 u=vboxuser n=ansible INFO| TASK [git_clone_role : git clone my app] *********************************************************
+2026-10-01 13:42:17,915 p=9366 u=vboxuser n=ansible ERROR| [ERROR]: Task failed: Module failed: Local modifications exist in the destination: /home/vboxuser/toDo (force=no).
+Origin: /home/vboxuser/toDo/IaaC/roles/git_clone_role/tasks/main.yml:13:3
+
+11   when: ansible_os_family == "Debian"
+12
+13 - name: git clone my app
+     ^ column 3
+
+
+2026-10-01 13:42:17,915 p=9366 u=vboxuser n=ansible INFO| fatal: [localhost]: FAILED! => {"before": "13a543fd6bd0c36bf2fcc12c0c1aee86b4333de6", "changed": false, "msg": "Local modifications exist in the destination: /home/vboxuser/toDo (force=no)."}
+2026-10-01 13:42:17,916 p=9366 u=vboxuser n=ansible INFO| PLAY RECAP ***************************************************************************************
+2026-10-01 13:42:17,916 p=9366 u=vboxuser n=ansible INFO| localhost                  : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
